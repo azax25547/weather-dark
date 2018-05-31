@@ -6,6 +6,7 @@ body{
     background-image: url("http://www.noaa.gov/sites/default/files/styles/scale_crop_1440x597/public/thumbnails/image/weather1_0.jpg?itok=5th0HCuN");
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     height: 96vh;    
 }
@@ -28,8 +29,9 @@ h1{
     height: 50px;
     width: 50px;
 }
-.weather-data{
+.weather-data, .time{
     margin-top:30px;
+    margin-bottom: 10px;
     font-size:1em;
     font-family:'HP Simplified', sans-serif;
     color: azure;
@@ -43,6 +45,15 @@ h1{
 .w3-btn{
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+}.w-data{
+    margin:5px 0;
+}
+span{
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ff785a;
+    font-family:'Arimo',sans-serif;
+    letter-spacing: 4px;
+    font-size:1.5em;
 }
 
 
