@@ -13,6 +13,10 @@ window.onload = function () {
         navigator.geolocation.getCurrentPosition(function(position,showError) {
             latData =  position.coords.latitude;
             longData = "," + position.coords.longitude;
+            var geo_code =  'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + '%2C' + position.coords.longitude + '&language=en';
+          $.getJSON(geo_code).done(function(data){
+              $(".city").text(data.results[0].address_components[0].long_name+" "+data.results[0].address_components[1].long_name+" "+data.results[0].address_components[2].long_name+" "+data.results[0].address_components[3].long_name);
+          })
             var appId = "c81b25dc16879d0b8591ab951d4f2dd4/";
             total = cors + api + appId + latData + longData+"?units=si";
            ;
