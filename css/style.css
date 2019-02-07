@@ -1,0 +1,58 @@
+body {
+  background: #3c3b3f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #605c3c,
+    #3c3b3f
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #605c3c,
+    #3c3b3f
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.heading {
+  margin: 15px 0;
+  font-family: "Arimo", sans-serif;
+}
+.name,
+.desc,
+.hum,
+.pressure,
+.ozone {
+  font-family: "Dosis", sans-serif;
+}
+.desc {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.loader {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+}
+.card {
+  display: none;
+  margin: 0 auto;
+  width: 30rem;
+  padding-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.temp {
+  cursor: pointer;
+}
+
+ul li {
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .card {
+    width: 18rem;
+  }
+}
+@media (max-width: 325px) {
+  .card {
+    width: 16rem;
+  }
+}
