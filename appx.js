@@ -21,31 +21,30 @@ class Weather {
       });
   }
 
-  getCurrentForecast() {
+  async getCurrentForecast() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(res => {
-        fetch(
+      navigator.geolocation.getCurrentPosition(async res => {
+        let result = await fetch(
           `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c81b25dc16879d0b8591ab951d4f2dd4/${
             res.coords.latitude
           },${res.coords.longitude}?units=si`
         )
           .then(res => res.json())
-          .then(res => {
-            console.log(res);
-            date.innerHTML += new Date().toLocaleDateString();
-            temp.innerHTML += `${Math.floor(
-              res.currently.temperature
-            )} <i class="wi wi-celsius"></i>`;
-            temps.push(Math.floor(res.currently.temperature));
-            temps.push(Math.floor(res.currently.temperature) * 1.8 + 32);
-            desc.innerHTML += res.currently.summary;
-            hum.innerHTML += Math.floor(res.currently.humidity * 100) + "%";
-            pressure.innerHTML += res.currently.pressure;
-            ozone.innerHTML += res.currently.ozone;
-            getIcon(res.currently.icon, icon);
-            console.log(temps);
-          })
-          .catch(err => console.log(err));
+          .catch(err => alert(err));
+
+        console.log(result);
+        date.innerHTML += new Date().toLocaleDateString();
+        temp.innerHTML += `${Math.floor(
+          result.currently.temperature
+        )} <i class="wi wi-celsius"></i>`;
+        temps.push(Math.floor(result.currently.temperature));
+        temps.push(Math.floor(result.currently.temperature * 1.8) + 32);
+        desc.innerHTML += result.currently.summary;
+        hum.innerHTML += Math.floor(result.currently.humidity * 100) + "%";
+        pressure.innerHTML += result.currently.pressure;
+        ozone.innerHTML += result.currently.ozone;
+        getIcon(result.currently.icon, icon);
+        console.log(temps);
       });
     } else {
       alert(
